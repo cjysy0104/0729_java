@@ -231,6 +231,7 @@ public class IdolView {
 			selectBoardList();
 			break;
 		case 3:
+			findByBoardNo();
 			break;
 		case 4:
 			break;
@@ -240,6 +241,7 @@ public class IdolView {
 		}
 
 	}
+
 
 	private void post() {
 		
@@ -293,7 +295,30 @@ public class IdolView {
 		
 	}
 	
-	
+	private void findByBoardNo() {
+
+		System.out.println("\n게시글 상세 보기 서비스입니다.");
+		
+		selectBoardList();
+		
+		System.out.println("상세 보기를 할 번호를 입력하세요 > ");
+		int boardNo = sc.nextInt();
+		sc.nextLine();
+		
+		Board board = ic.findByBoardNo(boardNo);
+		
+		if(board != null) {
+			System.out.println("================================");
+			System.out.println(boardNo + "번 게시물 상세보기");
+			System.out.println("\n제목: " + board.getBoardTitle());
+			System.out.println("\n내용: " + board.getBoardContent());
+			System.out.println("\n작성자: " + board.getUserId() +
+							   "\t 작성일: " + board.getCreateDate());
+		} else {
+			System.out.println(boardNo + "번 게시물은 존재하지 않습니다.");
+		}
+	}
+
 }
 
 
