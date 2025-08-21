@@ -54,19 +54,18 @@ public class IdolView {
 				login();
 				break;
 			case 4:
+				boardMenu();
 				break;
 			case 5:
 				return;
 			default:
 				System.out.println("잘못된 메뉴를 선택하셨습니다.");
 				break;
-				
+
 			}
 
 		}
 	}
-
-
 
 	private void info() {
 
@@ -95,6 +94,8 @@ public class IdolView {
 			break;
 		default:
 			System.out.println("잘못된 메뉴를 선택하셨습니다.");
+			break;
+
 		}
 
 	}
@@ -135,74 +136,72 @@ public class IdolView {
 		System.out.println("포지션: " + idol.getPosition());
 		System.out.println("퍼스널 컬러: " + idol.getColor());
 		System.out.println("✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨");
-		
-		
+
 	}
-	
+
 	// 1메서드 1기능인데 하는일 1.유효성검증 2.회원가입 너무많음 이후에 수정할 것
 	private void signUp() {
 
 		// Fan이라는 자료형에 맞춰 필드에 set할 값 3개를 사용자에게 입력받음
 		System.out.println("\n 프로미스나인 커뮤니티에 오신것을 환영합니다.");
 		System.out.println("회원가입 서비스입니다.");
-		
-		
+
 		// 입력 => userId, userPwd, nickName
 		// 제약조건 => 아이디는 4글자에서 10글자 사이일 것
-		//		 => 아이디는 다른 Fan의 아이디와 중복되면 안될 것
+		// => 아이디는 다른 Fan의 아이디와 중복되면 안될 것
 		String userId;
-		while(true) {
-			
+		while (true) {
+
 			System.out.println("가입하실 아이디를 입력해주세요 > ");
 			userId = sc.nextLine();
-			
+
 			// 1. 아이디는 4글자~10글자 사이만 가능
-			if(!(3 < userId.length() && userId.length() < 11)) {
+			if (!(3 < userId.length() && userId.length() < 11)) {
 				System.out.println("아이디는 4글자에서 10글자 사이만 사용 가능합니다.");
 				continue;
 			}
-			
+
 			// 2. 중복체크
 			boolean duplicateId = ic.checkId(userId);
-			
-			if(duplicateId) {
+
+			if (duplicateId) {
 				System.out.println("이미 존재하는 아이디입니다. 다시 입력해주세요");
 			} else {
 				System.out.println("사용 가능한 아이디입니다.");
 				break;
 			}
-			
+
 		}
-		
+
 		System.out.println("비밀번호를 입력해주세요 > ");
 		String userPwd = sc.nextLine();
 
 		System.out.println("닉네임을 입력해주세요 > ");
 		String nickName = sc.nextLine();
-		
+
 		// View는 1절 할 일 끗
 		// 사용자가 입력한 아이디/비번/닉네임을 Fan객체 생성해 필드에 담아서
 		// Controller에 있는 fans 라는 List의 요소로 추가
 		boolean result = ic.signUp(userId, userPwd, nickName);
-		
-		if(result) {
+
+		if (result) {
 			System.out.println("회원가입에 실패했습니다. 다시 시도해주세요");
 		} else {
 			System.out.println("회원가입을 환영합니다.");
 		}
 	}
-	
+
 	private void login() {
 
 		System.out.println("\n로그인 서비스입니다.");
-		
+
 		System.out.println("아이디를 입력하세요 > ");
 		String userId = sc.nextLine();
 		System.out.println("비밀번호를 입력하세요 > ");
 		String userPwd = sc.nextLine();
-		
+
 		Fan fan = ic.login(userId, userPwd);
-		
+
 		if (fan != null) {
 			System.out.println(fan.getNickName() + "님 환영합니다.");
 			loginFan = fan;
@@ -211,23 +210,59 @@ public class IdolView {
 		}
 	}
 
+	private void boardMenu() {
+
+		System.out.println("프로미스나인 게시판입니다.");
+		System.out.println("이용하실 메뉴를 선택해주세요.");
+		System.out.println("1. 게시글 작성");
+		System.out.println("2. 게시글 전체 조회");
+		System.out.println("3. 게시글 상세 조회");
+		System.out.println("4. 메인메뉴로 돌아가기");
+		System.out.println("메뉴 선택 > ");
+		int menuNo = sc.nextInt();
+		sc.nextLine();
+
+		switch (menuNo) {
+		case 1:
+			post();
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		default:
+			System.out.println("잘못된 메뉴를 선택하셨습니다.");
+			break;
+		}
+
+	}
+
+	private void post() {
+		
+		System.out.println("게시글 작성 서비스");
+		
+		// 전제 조건: 로그인한 사용자만 게시글을 작성할 수 있음
+		// 1. 변수?
+		// 2. if?
+		// 3. for?
+		if (loginFan != null) {
+			
+			System.out.println("게시글 제목을 입력해주세요 > ");
+			String boardTitle = sc.nextLine();
+			
+			System.out.println("게시글 내용을 입력해주세요 > ");
+			String boardContent = sc.nextLine();
+			
+			ic.post(boardTitle, boardContent, loginFan.getUserId());
+			
+			System.out.println("작성 완료!");
+			
+			
+		} else {
+			System.out.println("로그인 후 이용가능한 서비스입니다.");
+			return;
+		}
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

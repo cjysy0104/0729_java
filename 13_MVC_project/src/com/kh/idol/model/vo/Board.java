@@ -10,7 +10,7 @@ public class Board {
 	private String userId;
 	private String createDate;
 	/*
-	 * 제목 내용 작성자 작성일 +글식별번호
+	 * 제목 내용 작성자 작성일 + 글식별번호
 	 */
 
 	public Board() {
