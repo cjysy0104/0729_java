@@ -1,17 +1,11 @@
 package com.kh.network.run;
 
-public class TestTestClass {
+public class TestTestTest {
 
 	public static void main(String[] args) {
-
-		
-		// test 2
-		Method1();
-	}
-
-	private static void Method1() {
 		// TODO Auto-generated method stub
-		
+
+		// test 3
 	}
 
 }
