@@ -1,0 +1,23 @@
+package com.kh.chap01.run;
+
+import com.kh.chap01.controller.Integers;
+
+public class Run {
+
+	public static void main(String[] args) {
+
+		// 정수 값을 여러 개 다루고 싶음, 정확하게 몇 개의 정수를 다룰지 알 수 없음
+		int[] integers = new int[3];
+		integers[0] = 1;
+		integers[1] = 5;
+		integers[2] = 6;
+		
+		Integers integer = new Integers();
+		integer.add(10);
+		integer.add(30);
+		
+		System.out.println(integers);
+		
+		System.out.println();
+	}
+}
