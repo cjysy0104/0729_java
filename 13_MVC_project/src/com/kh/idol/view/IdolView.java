@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.kh.idol.controller.IdolController;
+import com.kh.idol.model.vo.Board;
 import com.kh.idol.model.vo.Fan;
 import com.kh.idol.model.vo.Idol;
 
@@ -227,6 +228,7 @@ public class IdolView {
 			post();
 			break;
 		case 2:
+			selectBoardList();
 			break;
 		case 3:
 			break;
@@ -265,4 +267,45 @@ public class IdolView {
 			return;
 		}
 	}
+
+	private void selectBoardList() {
+
+		System.out.println();
+		System.out.println("\n 전체 게시글 목록입니다.");
+		System.out.println();
+		
+		List<Board> boardList = ic.selectBoardList();
+		
+		if (boardList.isEmpty()) {
+			System.out.println("게시글이 아직 존재하지 않습니다.");
+			System.out.println();
+			System.out.println("첫 게시글의 주인공이 되어보세요!");
+		} else {
+			for(Board board : boardList) {
+				System.out.println("글 번호: " + board.getBoardNo() + "\t");
+				System.out.println("글 제목: " + board.getBoardTitle() + "\t");
+				System.out.println("작성자: " + board.getUserId() + "\t");
+				System.out.println("작성일: " + board.getCreateDate() + "\t");
+				System.out.println();
+			}
+		}
+		
+		
+	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
