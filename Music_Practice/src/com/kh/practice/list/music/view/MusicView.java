@@ -27,29 +27,48 @@ public class MusicView {
 			System.out.println("9. 종료 ");
 			System.out.println("메뉴번호 선택 : >> ");
 
+			int menuNo = 0;
+
 			try {
-				int menuNo = sc.nextInt();
-				sc.nextLine();
+				menuNo = sc.nextInt();
+			} catch (Exception e) {
+				System.out.println("숫자만 입력하세요.");
+			}
 
-				switch (menuNo) {
-				case 1: addList(); break;
-				case 2: addAtZero(); break;
-				case 3: printAll(); break;
-				case 4: searchMusic(); break;
-				case 5: removeMusic(); break;
-				case 6: setMusic(); break;
-				case 7: ascTitle(); break;
-				case 8: descSinger(); break;
-				case 9: 
-					System.out.println("종료");
-					return;
-				default:
-					System.out.println("잘못된 메뉴번호");
-					break;
+			sc.nextLine();
 
-				}
-			} catch (InputMismatchException e) {
-				e.printStackTrace();
+			switch (menuNo) {
+			case 1:
+				addList();
+				break;
+			case 2:
+				addAtZero();
+				break;
+			case 3:
+				printAll();
+				break;
+			case 4:
+				searchMusic();
+				break;
+			case 5:
+				removeMusic();
+				break;
+			case 6:
+				setMusic();
+				break;
+			case 7:
+				ascTitle();
+				break;
+			case 8:
+				descSinger();
+				break;
+			case 9:
+				System.out.println("종료");
+				return;
+			default:
+				System.out.println("잘못된 메뉴번호");
+				break;
+
 			}
 
 		}
@@ -58,19 +77,23 @@ public class MusicView {
 
 	public void addList() {
 
-		System.out.println("****** 마지막 위치에 곡 추가 ******");
-		System.out.println("곡 명 : ");
-		String title = sc.nextLine();
-		System.out.println("가수 명 : ");
-		String singer = sc.nextLine();
+		try {
+			System.out.println("****** 마지막 위치에 곡 추가 ******");
+			System.out.println("곡 명 : ");
+			String title = sc.nextLine();
+			System.out.println("가수 명 : ");
+			String singer = sc.nextLine();
 
-		Music music = new Music(title, singer);
-		int result = mc.addList(music);
+			Music music = new Music(title, singer);
+			int result = mc.addList(music);
 
-		if (result != 1) {
-			System.out.println("추가 실패");
-		} else {
-			System.out.println("추가 성공");
+			if (result != 1) {
+				System.out.println("추가 실패");
+			} else {
+				System.out.println("추가 성공");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 	}

@@ -2,9 +2,11 @@ package com.kh.practice.list.music.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.kh.practice.list.music.model.compare.AscTitle;
 import com.kh.practice.list.music.model.vo.Music;
 
 public class MusicController {
@@ -59,12 +61,13 @@ public class MusicController {
 		return null;
 	}
 
+	// TODO : 정렬 공부하고 구현하기
 	public int ascTitle() {
-		
 		return 1;
 	}
 
 	public int descSinger() {
+		list.sort(Comparator.reverseOrder());
 		return 1;
 	}
 }
