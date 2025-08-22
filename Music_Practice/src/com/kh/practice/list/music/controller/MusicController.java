@@ -10,7 +10,8 @@ public class MusicController {
 	private List list = new ArrayList();
 	
 	public int addList(Music music) {
-		return 0;
+		list.add(music);
+		return 1;
 	}
 	
 	public int addAtZero(Music music) {

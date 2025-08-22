@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.kh.practice.list.music.controller.MusicController;
+import com.kh.practice.list.music.model.vo.Music;
 
 public class MusicView {
 
@@ -30,7 +31,7 @@ public class MusicView {
 				sc.nextLine();
 
 				switch (menuNo) {
-				case 1: break;
+				case 1: addList(); break;
 				case 2: break;
 				case 3: break;
 				case 4: break;
@@ -53,6 +54,22 @@ public class MusicView {
 	}
 
 	public void addList() {
+		
+		System.out.println("****** 마지막 위치에 곡 추가 ******");
+		System.out.println("곡 명 : ");
+		String title = sc.nextLine();
+		System.out.println("가수 명 : ");
+		String singer = sc.nextLine();
+		
+		Music music = new Music(title, singer);
+		int result = mc.addList(music);
+		
+		if(result != 1) {
+			System.out.println("추가 실패");
+		} else {
+			System.out.println("추가 성공");
+		}
+		
 	}
 
 	public void addAtZero() {
