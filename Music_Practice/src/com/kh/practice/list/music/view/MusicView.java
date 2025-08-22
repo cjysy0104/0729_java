@@ -35,7 +35,7 @@ public class MusicView {
 				case 1: addList(); break;
 				case 2: addAtZero(); break;
 				case 3: printAll(); break;
-				case 4: break;
+				case 4: searchMusic(); break;
 				case 5: break;
 				case 6: break;
 				case 7: break;
@@ -92,12 +92,24 @@ public class MusicView {
 	}
 
 	public void printAll() {
+		
 		System.out.println("****** 전체 곡 목록 출력 ******");
-		List list = mc.printAll();
+		List<Music> list = mc.printAll();
 		System.out.println(list); 
 	}
 
 	public void searchMusic() {
+
+		System.out.println("****** 특정 곡 검색 ****** ");
+		System.out.println("검색할 곡 명 : ");
+		String title = sc.nextLine();
+		Music music = mc.searchMusic(title);
+		if (music == null) {
+			System.out.println("검색한 곡이 없습니다.");
+		} else {
+			System.out.println("검색한 곡은 " + music.getTitle() + " - " + music.getSinger() + "입니다.");
+		}
+
 	}
 
 	public void removeMusic() {
