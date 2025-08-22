@@ -35,7 +35,7 @@ public class BookMenu {
 				switch (menuNo) {
 				case 1: insertBook(); break;
 				case 2: selectList(); break;
-				case 3:  break;
+				case 3: searchBook(); break;
 				case 4:  break;
 				case 5:  break;
 				case 9: 
@@ -93,6 +93,18 @@ public class BookMenu {
 	}
 
 	public void searchBook() {
+
+		System.out.println("검색 키워드: ");
+		String keyword = sc.nextLine();
+		ArrayList<Book> searchList = bc.searchBook(keyword);
+
+		if (searchList == null) {
+			System.out.println("검색 결과가 없습니다.");
+		} else {
+			for (Book book : searchList) {
+				System.out.println(book);
+			}
+		}
 	}
 
 	public void deleteBook() {
