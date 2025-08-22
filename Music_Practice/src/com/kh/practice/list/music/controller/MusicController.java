@@ -7,7 +7,7 @@ import com.kh.practice.list.music.model.vo.Music;
 
 public class MusicController {
 
-	private List<Music> list = new ArrayList();
+	private List list = new ArrayList();
 
 	public int addList(Music music) {
 		list.addLast(music);
@@ -26,7 +26,7 @@ public class MusicController {
 	// TODO: 곡 제목이 중복이면 어떻게할지
 	public Music searchMusic(String title) {
 		for(int i = 0; i < list.size(); i++) {
-			Music music = list.get(i);
+			Music music = (Music)list.get(i);
 			if(music.getTitle().equals(title)) {
 				return music;
 			}
@@ -35,6 +35,13 @@ public class MusicController {
 	}
 
 	public Music removeMusic(String title) {
+		for(int i = 0; i < list.size(); i++) {
+			Music music = (Music)list.get(i);
+			if(music.getTitle().equals(title)) {
+				list.remove(i);
+				return music;
+			}
+		}
 		return null;
 	}
 
