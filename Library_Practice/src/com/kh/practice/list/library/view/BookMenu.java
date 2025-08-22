@@ -36,7 +36,7 @@ public class BookMenu {
 				case 1: insertBook(); break;
 				case 2: selectList(); break;
 				case 3: searchBook(); break;
-				case 4:  break;
+				case 4: deleteBook(); break;
 				case 5:  break;
 				case 9: 
 					System.out.println("프로그램을 종료합니다.");
@@ -108,6 +108,17 @@ public class BookMenu {
 	}
 
 	public void deleteBook() {
+		
+		System.out.println("삭제할 도서 명 : ");
+		String title = sc.nextLine();
+		System.out.println("삭제할 저자 명 : ");
+		String author = sc.nextLine();
+		Book remove = bc.deleteBook(title, author);
+		if(remove != null) {
+			System.out.println("성공적으로 삭제되었습니다.");
+		} else {
+			System.out.println("삭제할 도서를 찾지 못했습니다.");
+		}
 	}
 
 	public void ascBook() {

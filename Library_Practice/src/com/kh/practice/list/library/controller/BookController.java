@@ -42,7 +42,15 @@ public class BookController {
 	}
 
 	public Book deleteBook(String title, String author) {
-		return null;
+		Book removeBook = null;
+		for(int i = 0; i < list.size(); i++) {
+			Book book = list.get(i);
+			if(title.equals(book.getTitle()) && author.equals(book.getAuthor())) {
+				removeBook = book;
+				list.remove(i);
+			}
+		}
+		return removeBook;
 	}
 
 	public int ascBook() {
