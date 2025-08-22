@@ -39,11 +39,13 @@ public class MusicView {
 				case 5: removeMusic(); break;
 				case 6: setMusic(); break;
 				case 7: ascTitle(); break;
-				case 8: break;
+				case 8: descSinger(); break;
 				case 9: 
 					System.out.println("종료");
 					return;
-				default: break;
+				default:
+					System.out.println("잘못된 메뉴번호");
+					break;
 
 				}
 			} catch (InputMismatchException e) {
@@ -55,36 +57,36 @@ public class MusicView {
 	}
 
 	public void addList() {
-		
+
 		System.out.println("****** 마지막 위치에 곡 추가 ******");
 		System.out.println("곡 명 : ");
 		String title = sc.nextLine();
 		System.out.println("가수 명 : ");
 		String singer = sc.nextLine();
-		
+
 		Music music = new Music(title, singer);
 		int result = mc.addList(music);
-		
-		if(result != 1) {
+
+		if (result != 1) {
 			System.out.println("추가 실패");
 		} else {
 			System.out.println("추가 성공");
 		}
-		
+
 	}
 
 	public void addAtZero() {
-		
+
 		System.out.println("****** 첫 위치에 곡 추가 ******");
 		System.out.println("곡 명 : ");
 		String title = sc.nextLine();
 		System.out.println("가수 명 : ");
 		String singer = sc.nextLine();
-		
+
 		Music music = new Music(title, singer);
 		int result = mc.addAtZero(music);
-		
-		if(result != 1) {
+
+		if (result != 1) {
 			System.out.println("추가 실패");
 		} else {
 			System.out.println("추가 성공");
@@ -92,10 +94,10 @@ public class MusicView {
 	}
 
 	public void printAll() {
-		
+
 		System.out.println("****** 전체 곡 목록 출력 ******");
 		List list = mc.printAll();
-		System.out.println(list); 
+		System.out.println(list);
 	}
 
 	public void searchMusic() {
@@ -148,9 +150,25 @@ public class MusicView {
 	}
 
 	public void ascTitle() {
+
+		System.out.println("****** 곡 명 오름차순 정렬 ******");
+		int result = mc.ascTitle();
+		if (result != 1) {
+			System.out.println("정렬 실패");
+		} else {
+			System.out.println("정렬 성공");
+		}
 	}
 
 	public void descSinger() {
+
+		System.out.println("****** 가수 명 내림차순 정렬 ******");
+		int result = mc.descSinger();
+		if (result != 1) {
+			System.out.println("정렬 실패");
+		} else {
+			System.out.println("정렬 성공");
+		}
 	}
 
 }

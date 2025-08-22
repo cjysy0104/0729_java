@@ -1,6 +1,8 @@
 package com.kh.practice.list.music.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import com.kh.practice.list.music.model.vo.Music;
@@ -58,10 +60,11 @@ public class MusicController {
 	}
 
 	public int ascTitle() {
-		return 0;
+		
+		return 1;
 	}
 
 	public int descSinger() {
-		return 0;
+		return 1;
 	}
 }
