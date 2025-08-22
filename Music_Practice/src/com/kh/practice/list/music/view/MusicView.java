@@ -1,5 +1,6 @@
 package com.kh.practice.list.music.view;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.kh.practice.list.music.controller.MusicController;
@@ -8,24 +9,71 @@ public class MusicView {
 
 	private Scanner sc = new Scanner(System.in);
 	private MusicController mc = new MusicController();
-	
-	public void mainMenu() {}
-	
-	public void addList() {}
-	
-	public void addAtZero() {}
-	
-	public void printAll() {}
-	
-	public void searchMusic() {}
-	
-	public void removeMusic() {}
-	
-	public void setMusic() {} 
-	
-	public void ascTitle() {}
-	
-	public void descSinger() {}
-		
+
+	public void mainMenu() {
+
+		while (true) {
+			System.out.println("******* 메인 메뉴 ******* ");
+			System.out.println("1. 마지막 위치에 곡 추가");
+			System.out.println("2. 첫 위치에 곡 추가");
+			System.out.println("3. 전체 곡 목록 출력");
+			System.out.println("4. 특정 곡 검색");
+			System.out.println("5. 특정 곡 삭제");
+			System.out.println("6. 특정 곡 정보 수정");
+			System.out.println("7. 곡명 오름차순 정렬");
+			System.out.println("8. 가수명 내림차순 정렬");
+			System.out.println("9. 종료 ");
+			System.out.println("메뉴번호 선택 : >> ");
+
+			try {
+				int menuNo = sc.nextInt();
+				sc.nextLine();
+
+				switch (menuNo) {
+				case 1: break;
+				case 2: break;
+				case 3: break;
+				case 4: break;
+				case 5: break;
+				case 6: break;
+				case 7: break;
+				case 8: break;
+				case 9: 
+					System.out.println("종료");
+					return;
+				default: break;
+
+				}
+			} catch (InputMismatchException e) {
+				e.printStackTrace();
+			}
+
+		}
+
 	}
 
+	public void addList() {
+	}
+
+	public void addAtZero() {
+	}
+
+	public void printAll() {
+	}
+
+	public void searchMusic() {
+	}
+
+	public void removeMusic() {
+	}
+
+	public void setMusic() {
+	}
+
+	public void ascTitle() {
+	}
+
+	public void descSinger() {
+	}
+
+}
