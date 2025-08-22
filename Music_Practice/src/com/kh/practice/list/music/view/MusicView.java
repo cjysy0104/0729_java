@@ -37,8 +37,8 @@ public class MusicView {
 				case 3: printAll(); break;
 				case 4: searchMusic(); break;
 				case 5: removeMusic(); break;
-				case 6: break;
-				case 7: break;
+				case 6: setMusic(); break;
+				case 7: ascTitle(); break;
 				case 8: break;
 				case 9: 
 					System.out.println("종료");
@@ -113,21 +113,38 @@ public class MusicView {
 	}
 
 	public void removeMusic() {
-		
+
 		System.out.println("****** 특정 곡 삭제 ******");
 		System.out.println("삭제할 곡 명 : ");
 		String title = sc.nextLine();
 		Music removedMusic = mc.removeMusic(title);
-		if(removedMusic == null) {
+		if (removedMusic == null) {
 			System.out.println("삭제할 곡이 없습니다.");
 		} else {
 			System.out.println(removedMusic.toString() + "을 삭제했습니다.");
 		}
-		
-		
+
 	}
 
 	public void setMusic() {
+
+		System.out.println("****** 특정 곡 정보 수정 ******");
+		System.out.println("검색할 곡 명 : ");
+		String title = sc.nextLine();
+		System.out.println("수정할 곡 명 : ");
+		String updateTitle = sc.nextLine();
+		System.out.println("수정할 가수 명 : ");
+		String updateSinger = sc.nextLine();
+		Music music = new Music(updateTitle, updateSinger);
+
+		Music result = mc.setMusic(title, music);
+		System.out.println(result);
+		if (result == null) {
+			System.out.println("수정할 곡이 없습니다.");
+		} else {
+			System.out.println(title + "가 값이 변경되었습니다.");
+		}
+
 	}
 
 	public void ascTitle() {

@@ -25,9 +25,9 @@ public class MusicController {
 
 	// TODO: 곡 제목이 중복이면 어떻게할지
 	public Music searchMusic(String title) {
-		for(int i = 0; i < list.size(); i++) {
-			Music music = (Music)list.get(i);
-			if(music.getTitle().equals(title)) {
+		for (int i = 0; i < list.size(); i++) {
+			Music music = (Music) list.get(i);
+			if (music.getTitle().equals(title)) {
 				return music;
 			}
 		}
@@ -35,9 +35,9 @@ public class MusicController {
 	}
 
 	public Music removeMusic(String title) {
-		for(int i = 0; i < list.size(); i++) {
-			Music music = (Music)list.get(i);
-			if(music.getTitle().equals(title)) {
+		for (int i = 0; i < list.size(); i++) {
+			Music music = (Music) list.get(i);
+			if (music.getTitle().equals(title)) {
 				list.remove(i);
 				return music;
 			}
@@ -46,6 +46,14 @@ public class MusicController {
 	}
 
 	public Music setMusic(String title, Music music) {
+		Music result = searchMusic(title);
+		if (result != null) {
+			for (int i = 0; i < list.size(); i++) {
+				result.setSinger(music.getSinger());
+				result.setTitle(music.getTitle());
+				return result;
+			}
+		}
 		return null;
 	}
 
