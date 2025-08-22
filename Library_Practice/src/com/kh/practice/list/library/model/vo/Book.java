@@ -2,7 +2,7 @@ package com.kh.practice.list.library.model.vo;
 
 import java.util.Objects;
 
-public class Book {
+public class Book implements Comparable<Book>{
 
 	private String title;
 	private String author;
@@ -75,9 +75,11 @@ public class Book {
 		return Objects.equals(author, other.author) && Objects.equals(category, other.category) && price == other.price
 				&& Objects.equals(title, other.title);
 	}
-	
-	public int compareTo() {
-		return 0;
+
+	@Override
+	public int compareTo(Book o) {
+		 
+		return (this.title).compareTo(o.title);
 	}
 
 }

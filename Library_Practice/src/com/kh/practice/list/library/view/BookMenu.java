@@ -37,7 +37,7 @@ public class BookMenu {
 				case 2: selectList(); break;
 				case 3: searchBook(); break;
 				case 4: deleteBook(); break;
-				case 5:  break;
+				case 5: ascBook(); break;
 				case 9: 
 					System.out.println("프로그램을 종료합니다.");
 					return;
@@ -54,7 +54,7 @@ public class BookMenu {
 	}
 
 	public void insertBook() {
-		
+
 		System.out.println("===== 새 도서 추가 =====");
 		System.out.println("책 정보를 입력해 주세요");
 		System.out.println("도서 명 : ");
@@ -75,7 +75,7 @@ public class BookMenu {
 		System.out.println("가격 : ");
 		int price = sc.nextInt();
 		sc.nextLine();
-		
+
 		Book book = new Book(title, author, categoryName, price);
 		bc.insertBook(book);
 	}
@@ -108,13 +108,13 @@ public class BookMenu {
 	}
 
 	public void deleteBook() {
-		
+
 		System.out.println("삭제할 도서 명 : ");
 		String title = sc.nextLine();
 		System.out.println("삭제할 저자 명 : ");
 		String author = sc.nextLine();
 		Book remove = bc.deleteBook(title, author);
-		if(remove != null) {
+		if (remove != null) {
 			System.out.println("성공적으로 삭제되었습니다.");
 		} else {
 			System.out.println("삭제할 도서를 찾지 못했습니다.");
@@ -122,5 +122,12 @@ public class BookMenu {
 	}
 
 	public void ascBook() {
+
+		int result = bc.ascBook();
+		if (result == 1) {
+			System.out.println("정렬에 성공하였습니다.");
+		} else {
+			System.out.println("정렬에 실패하였습니다.");
+		}
 	}
 }
