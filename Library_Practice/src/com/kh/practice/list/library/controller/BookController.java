@@ -14,7 +14,7 @@ public class BookController {
 	}
 	
 	public void insertBook(Book bk) {
-		
+		list.add(bk);
 	}
 	
 	public ArrayList selectList() {

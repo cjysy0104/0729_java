@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.kh.practice.list.library.controller.BookController;
+import com.kh.practice.list.library.model.vo.Book;
 
 public class BookMenu {
 
@@ -31,7 +32,7 @@ public class BookMenu {
 				sc.nextLine();
 
 				switch (menuNo) {
-				case 1:  break;
+				case 1: insertBook(); break;
 				case 2:  break;
 				case 3:  break;
 				case 4:  break;
@@ -52,6 +53,30 @@ public class BookMenu {
 	}
 
 	public void insertBook() {
+		
+		System.out.println("===== 새 도서 추가 =====");
+		System.out.println("책 정보를 입력해 주세요");
+		System.out.println("도서 명 : ");
+		String title = sc.nextLine();
+		System.out.println("저자 명 : ");
+		String author = sc.nextLine();
+		System.out.println("장르(1. 인문 / 2. 과학 / 3. 외국어 / 4. 기타) : ");
+		int category = sc.nextInt();
+		sc.nextLine();
+		String categoryName = null;
+		switch(category) {
+		case 1: categoryName = "인문";
+		case 2: categoryName = "과학";
+		case 3: categoryName = "외국어";
+		case 4: categoryName = "기타";
+		default : System.out.println("잘못된 입력"); break;
+		}
+		System.out.println("가격 : ");
+		int price = sc.nextInt();
+		sc.nextLine();
+		
+		Book book = new Book(title, author, categoryName, price);
+		bc.insertBook(book);
 	}
 
 	public void selectList() {
