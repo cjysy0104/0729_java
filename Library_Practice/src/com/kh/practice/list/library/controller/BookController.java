@@ -18,6 +18,9 @@ public class BookController {
 	}
 	
 	public ArrayList selectList() {
+		if(list.size() != 0) {
+			return (ArrayList) list;
+		}
 		return null;
 	}
 	

@@ -55,7 +55,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", category=" + category + ", price=" + price + "]";
+		return "\t(" + title + "/" + author + "/" + category + "/" + price + ")";
 	}
 
 	@Override

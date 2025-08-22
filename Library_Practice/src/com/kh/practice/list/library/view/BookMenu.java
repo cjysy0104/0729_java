@@ -1,5 +1,6 @@
 package com.kh.practice.list.library.view;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -33,7 +34,7 @@ public class BookMenu {
 
 				switch (menuNo) {
 				case 1: insertBook(); break;
-				case 2:  break;
+				case 2: selectList(); break;
 				case 3:  break;
 				case 4:  break;
 				case 5:  break;
@@ -65,11 +66,11 @@ public class BookMenu {
 		sc.nextLine();
 		String categoryName = null;
 		switch(category) {
-		case 1: categoryName = "인문";
-		case 2: categoryName = "과학";
-		case 3: categoryName = "외국어";
-		case 4: categoryName = "기타";
-		default : System.out.println("잘못된 입력"); break;
+		case 1: categoryName = "인문"; break;
+		case 2: categoryName = "과학"; break;
+		case 3: categoryName = "외국어"; break;
+		case 4: categoryName = "기타"; break;
+		default : System.out.println("잘못된 입력"); return;
 		}
 		System.out.println("가격 : ");
 		int price = sc.nextInt();
@@ -80,6 +81,15 @@ public class BookMenu {
 	}
 
 	public void selectList() {
+
+		ArrayList<Book> bookList = bc.selectList();
+		if (bookList == null) {
+			System.out.println("존재하는 도서가 없습니다.");
+		} else {
+			for (Book book : bookList) {
+				System.out.println(book);
+			}
+		}
 	}
 
 	public void searchBook() {
