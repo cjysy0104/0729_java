@@ -1,6 +1,7 @@
 package com.kh.practice.list.music.view;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 import com.kh.practice.list.music.controller.MusicController;
@@ -32,8 +33,8 @@ public class MusicView {
 
 				switch (menuNo) {
 				case 1: addList(); break;
-				case 2: break;
-				case 3: break;
+				case 2: addAtZero(); break;
+				case 3: printAll(); break;
 				case 4: break;
 				case 5: break;
 				case 6: break;
@@ -73,9 +74,13 @@ public class MusicView {
 	}
 
 	public void addAtZero() {
+		
 	}
 
 	public void printAll() {
+		System.out.println("****** 전체 곡 목록 출력 ******");
+		List list = mc.printAll();
+		System.out.println(list); 
 	}
 
 	public void searchMusic() {

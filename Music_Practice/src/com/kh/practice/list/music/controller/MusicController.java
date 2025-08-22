@@ -19,7 +19,7 @@ public class MusicController {
 	}
 	
 	public List printAll() {
-		return null;
+		return list;
 	}
 	
 	public Music searchMusic(String title) {
