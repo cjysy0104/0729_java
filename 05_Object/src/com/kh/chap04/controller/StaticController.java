@@ -35,3 +35,8 @@ public class StaticController {
 	 */
 	public static final String JAVA_VERSION = "21"; // final 글꼴: 굵은꼴
 }
+
+/*
+ * FINAL method(){} : 상속받아도 오버라이딩 X
+ * 
+ */
